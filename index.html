@@ -13,6 +13,10 @@
   <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   <!-- NEW STYLES -->
 
   <style>
@@ -23,6 +27,12 @@
       font-weight: 700;
     }
 
+    @font-face {
+      font-family: 'Casolgans';
+      src: url('/assets/font-Caslon/CasOlgans-Regular.ttf') format('opentype');
+      font-weight: 700;
+    }
+
 
     body {
       background-color: #f8c6aa;
@@ -30,97 +40,46 @@
 
 
     /* SWIPER */
-
     .swiper {
-      width: 80%;
-      height: 100%;
-      margin-top: 13%;
-    }
-
-    .swiper-3d .swiper-slide-shadow {
-      background: transparent;
+      width: 100%;
+      /* height: 300px; */
+      padding-top: 40%;
     }
 
     .swiper-slide {
+      text-align: center;
+      font-size: 18px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      border-radius: 18px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    .swiper-slide {
       background-image: url('./assets/img/card-bg.svg');
+      align-items: center;
       background-size: contain;
       background-repeat: no-repeat;
-      width: 100%;
-      height: 100%;
       background-position: center;
+      height: 440px;
+      margin-top: 40px;
     }
 
-    .swiper-slide {
-      opacity: .1;
-      padding-top: 41%;
-    }
-
-    .swiper-button-next:after,
-    .swiper-rtl .swiper-button-prev:after,
-    .swiper-button-prev:after,
-    .swiper-rtl .swiper-button-next:after {
-      font-size: 13px;
-      color: #fff;
-    }
-
-    .swiper-button-next,
-    .swiper-rtl .swiper-button-prev {
-      right: -32px;
-    }
-
-    .swiper-button-prev,
-    .swiper-rtl .swiper-button-next {
-      left: -32px;
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-      /* background-color: #4a0258; */
-      width: 30px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 100px;
-    }
-
-    .swiper-slide .wish-content {
-      opacity: 0;
-    }
-
-    .swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active {
-      opacity: 1;
-      padding-top: 0%;
-    }
-
-    .swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active .wish-content {
-      opacity: 1;
+    .swiper-slide img {
+      display: block;
+      width: 50%;
+      object-fit: contain;
     }
 
 
     /* END */
     .section1 {
-      background-image: url('./assets/img/bg1.jpg');
+      background-image: url('./assets/img/bg1.svg');
       width: 100%;
       height: 100%;
-      background-size: contain;
-      object-fit: contain;
+      background-size: cover;
+      object-fit: cover;
       background-repeat: no-repeat;
     }
 
     .main {
       padding: 100px 30px;
-      padding-bottom: 25px;
+      padding-bottom: 50px;
     }
 
     img.wish-typography {
@@ -129,22 +88,24 @@
       height: 100px;
       margin: 0 auto;
       margin-top: 0px;
-    }
-
-    .count {
       position: relative;
       bottom: 10px;
     }
 
+    .count {
+      position: relative;
+      /* bottom: 10px; */
+    }
+
     .count img {
       width: 100%;
-      height: 160px;
+      height: 100px;
       object-fit: contain;
     }
 
     .count span {
       position: absolute;
-      top: 41%;
+      top: 39%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: 'Caslon';
@@ -155,7 +116,7 @@
     .count p {
       margin: 0;
       position: relative;
-      bottom: 51px;
+      bottom: 15px;
       color: #FFF3C2;
       font-size: 17px;
       text-align: center;
@@ -166,12 +127,12 @@
       margin: 0 auto;
       height: 8px;
       position: relative;
-      bottom: 50px;
+      bottom: 15px;
     }
 
     .section__contents {
       position: relative;
-      bottom: 38px;
+      /* bottom: 18px; */
     }
 
     .section__contents p {
@@ -190,7 +151,8 @@
     .btns {
       text-align: center;
       position: relative;
-      bottom: 25px;
+      padding-top: 20px;
+      /* bottom: 25px; */
     }
 
     .wish-button {
@@ -212,11 +174,23 @@
       background-position: center;
       margin-bottom: 0;
       font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
 
     }
-    .wish-bg{
+
+    .wish-button:hover {
+      transform: translateY(-5px);
+    }
+
+    .yellow-btn {
+      background-image: url('./assets/img/CTA.svg');
+      color: #000;
+    }
+
+    .wish-bg {
       width: 100%;
-      margin-top: 50px;
+      /* margin-top: 50px; */
     }
   </style>
 
@@ -307,14 +281,16 @@
 
     .view-more-button {
       display: inline-block;
-      color: #fff;
+      color: #5d056c;
       margin: 10px;
       font-size: 1em;
       font-weight: bold;
       position: relative;
-      padding-bottom: 5px;
+      padding-bottom: 2px;
       transition: color 0.3s ease;
       cursor: pointer;
+      margin-bottom: 40px;
+      font-weight: 400;
     }
 
     /* Underline Effect */
@@ -322,8 +298,8 @@
       content: "";
       display: block;
       width: 0;
-      height: 2px;
-      background: #fff;
+      height: 1.5px;
+      background: #5d056c;
       transition: width 0.3s ease;
       position: absolute;
       left: 0;
@@ -344,7 +320,7 @@
     }
 
     .prize {
-      margin: 10px;
+      margin: 12px 10px;
       display: flex;
       justify-content: center;
     }
@@ -383,14 +359,14 @@
 
     .wish-cards {
       display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px 10px;
-    padding-top: 35px;
-    width: 90%;
-    margin: 0 auto;
-    padding-bottom: 50px;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 10px;
+      padding-top: 35px;
+      width: 90%;
+      margin: 0 auto;
+      padding-bottom: 20px;
     }
 
     .wish-card {
@@ -430,12 +406,12 @@
       margin-bottom: 5px;
       text-transform: uppercase;
       font-weight: normal;
-      font-size: 14px;
+      font-size: 12px;
     }
 
     @media (max-width: 600px) {
       .wish-card h3 {
-        margin-top: 9vh;
+        margin-top: 9.5vh;
       }
     }
 
@@ -458,7 +434,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgb(0 0 0 / 84%);
       /* Transparent black */
       z-index: 1;
       /* Behind the modal */
@@ -479,7 +455,7 @@
       z-index: 2;
       width: 37vh;
       height: 435px;
-      background-image: url("assets/bg.png");
+      background-image: url("assets/img/makewish.png");
       background-repeat: no-repeat;
       background-size: 100% 100%;
       flex-direction: column;
@@ -498,12 +474,51 @@
       /* Show overlay when active */
     }
 
+
+    /* MODAL 3 */
+
+    .modal-3 {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      z-index: 2;
+      width: 37vh;
+      height: 435px;
+      background-image: url("assets/img/makewish.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .modal-3 .message-container img {
+      width: 100%;
+      height: 100%;
+
+    }
+
+    .modal-3.active {
+      display: flex;
+      padding: 0;
+      /* Display when active */
+    }
+
     .close-modal {
       position: absolute;
-      top: -8px;
+      top: -11px;
       right: -12px;
-      width: 40px;
-      height: 40px;
+      width: 34px;
+      height: 36px;
       background: url("assets/close_icon.png") no-repeat center center/contain;
       cursor: pointer;
       z-index: 3;
@@ -525,10 +540,13 @@
     .first-step-message img {
       width: 30vh;
       margin: 15px 0px;
+      height: 110px;
     }
 
     .modal-1 p {
-      font-size: 1.5em;
+      font-size: 16px;
+      margin-bottom: 0;
+      color: #FFF3C2;
     }
 
     .prize .prize-image-2 {
@@ -536,12 +554,19 @@
     }
 
     .modal-1 .description {
-      font-size: 1.1em;
+      font-size: 18px;
+      margin-top: 0;
+      color: #FFF3C2;
+      width: 90%;
+      margin: 0 auto;
+      margin-bottom: 50px;
+      line-height: 115.5%;
     }
 
     .tnc {
-      font-size: 0.7em;
+      font-size: 10px;
       margin: 20px;
+      margin-top: 6px;
     }
 
     .second-step {
@@ -553,34 +578,46 @@
     }
 
     .second-step-box {
-      height: 615px;
+      height: auto;
     }
 
     .second-step h1 {
       color: #ffd100;
       margin-bottom: 10px;
       font-size: 1.4em;
+      font-family: 'Casolgans';
     }
 
     .subtext {
-      color: white;
-      font-size: 1em;
-      margin-bottom: 0px;
+      color: #FFE161;
+      font-size: 13px;
+      line-height: 125%;
+      margin-bottom: 20px;
     }
 
     .info-container {
-      margin-bottom: 25px;
+      margin-bottom: 15px;
     }
 
-    .info-box {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 5px 45px;
-      color: white;
-      margin: 5px auto;
-      border-radius: 5px;
-      max-width: 68%;
-      text-align: center;
-      line-height: 1.3;
+    p.error-msg {
+      color: #fff;
+      font-size: 12px;
+      margin: 0;
+    }
+
+    .info-container img.devider {
+      width: 100%;
+      margin: 0 auto;
+      height: 8px;
+      margin-bottom: 20px;
+    }
+
+    .info-box img {
+      width: 82%;
+      height: 50px;
+      margin-bottom: 10px;
+      object-fit: contain;
+      object-position: left;
     }
 
     .info-box span {
@@ -591,19 +628,56 @@
       font-size: 1em;
     }
 
-    .info-box:nth-of-type(2),
-    .info-box:nth-of-type(4) {
-      background: linear-gradient(to left,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.2) 100%);
+    .terms {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
-    .info-box:nth-of-type(1),
-    .info-box:nth-of-type(3) {
-      background: linear-gradient(to right,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.2) 100%);
+
+
+    .terms label {
+      font-size: 12px;
+      color: #FFD100;
     }
+
+    .terms label a {
+      color: #FFD100;
+    }
+
+    .terms input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      appearance: none;
+      border-radius: 0;
+      background-color: #D9D9D9;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      padding: 0;
+    }
+
+    .terms input[type="checkbox"]:checked {
+      background-color: #158e92;
+    }
+
+    .terms input[type="checkbox"]::before {
+      content: "✔";
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .terms input[type="checkbox"]:checked::before {
+      display: block;
+    }
+
 
     .separator {
       display: block;
@@ -621,32 +695,46 @@
     }
 
     textarea {
-      background-color: #004144;
-      color: white;
+      background-color: #FFFFFF;
+      color: #6d1870;
       width: 34vh;
-      height: 30vh;
+      height: 24vh;
       padding: 15px;
       border-radius: 15px;
       border: none;
       outline: none;
       margin: 10px 0px;
       resize: none;
+      font-size: 12px;
     }
 
     textarea::placeholder {
-      color: rgba(255, 255, 255, 0.7);
+      color: #6d1870;
       font-style: italic;
+      font-size: 10px;
     }
 
     .third-step h1 {
-      color: white;
-      font-size: 1.5em;
       font-weight: bold;
+      color: #ffd100;
+      margin-bottom: 10px;
+      font-size: 1.4em;
+      font-family: 'Casolgans';
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 30px;
+
     }
 
     .third-step .subtext {
-      color: #ffd100;
-      font-size: 1em;
+      color: #FFE161;
+      font-size: 13px;
+      line-height: 125%;
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      font-weight: 300;
+      margin-top: 10px;
     }
 
     .fourth-step {
@@ -657,15 +745,27 @@
       display: block;
     }
 
-    .fourth-step-step h1 {
-      color: white;
-      font-size: 1.5em;
+    .fourth-step-step h1,
+    .fourth-step h1 {
       font-weight: bold;
+      color: #ffd100;
+      margin-bottom: 10px;
+      font-size: 1.4em;
+      font-family: 'Casolgans';
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 30px;
     }
 
     .fourth-step .subtext {
-      color: #ffd100;
-      font-size: 1.1em;
+      color: #FFE161;
+      font-size: 13px;
+      line-height: 125%;
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      font-weight: 300;
+      margin-top: 10px;
     }
 
     .hide {
@@ -676,15 +776,15 @@
       width: 80%;
       padding: 15px;
       margin: 10px 0;
-      background-color: #004144;
+      background-color: #FFFFFF;
       border: none;
       border-radius: 15px;
-      color: white;
+      color: #6d1870;
       font-size: 14px;
     }
 
     input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
+      color: #6d1870;
       padding: 2px;
       font-style: italic;
     }
@@ -703,7 +803,6 @@
 
     .final-img-container {
       width: 100%;
-      height: 35vh;
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -713,8 +812,8 @@
 
     .final-img-container img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      /* height: 100%; */
+      /* object-fit: cover; */
       display: block;
     }
   </style>
@@ -726,7 +825,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: #fff;
+      /* background: #fff; */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       padding: 20px;
       border-radius: 10px;
@@ -734,7 +833,7 @@
       z-index: 2;
       width: 35vh;
       height: 435px;
-      background-image: url("assets/messag_background.png");
+      background-image: url("assets/img/Flipped\ Wish\ Card.png");
       background-repeat: no-repeat;
       background-size: 100% 100%;
       flex-direction: column;
@@ -742,27 +841,55 @@
       justify-content: center;
       text-align: center;
       backface-visibility: hidden;
-      transition: transform 0.6s ease-in-out;
-      transform: translate(-50%, -50%) rotateY(180deg);
+      /* transition: transform 0.6s ease-in-out; */
+      /* transform: translate(-50%, -50%) rotateY(180deg); */
+      opacity: 0;
+      animation: smoothFadeIn 2s ease-in-out forwards;
     }
 
     .modal-2.active {
       display: flex;
-      transform: translate(-50%, -50%) rotateY(0deg);
-      animation: flipIn 0.6s ease-in-out;
+      opacity: 1;
     }
 
     @keyframes flipIn {
       from {
-        transform: translate(-50%, -50%) rotateY(90deg);
         opacity: 0;
       }
 
       to {
-        transform: translate(-50%, -50%) rotateY(0deg);
         opacity: 1;
       }
     }
+
+
+    .swiper-button-next:after,
+    .swiper-rtl .swiper-button-prev:after {
+      content: 'next';
+      color: #4A0258;
+      font-size: 12px;
+    }
+
+    .swiper-button-prev:after,
+    .swiper-rtl .swiper-button-next:after {
+      color: #4A0258;
+      font-size: 12px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      background: #F4CA8E;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+    top: 76%;
+}
   </style>
   <style>
     .wish-of-the-day {
@@ -780,7 +907,8 @@
 
     @media (max-width: 600px) {
       .wish-of-the-day {
-        height: 100vh;
+        height: auto;
+        padding-bottom: 60px;
       }
     }
 
@@ -861,7 +989,7 @@
       flex-direction: column;
       text-align: center;
       justify-content: center;
-      width: 80%;
+      width: 56%;
     }
 
     .wish-date {
@@ -893,8 +1021,9 @@
       /* Ensures it stays within the container */
       max-height: 100%;
       /* Prevents overflowing vertically */
-      line-height: 1.2;
-      /* Adjusts line spacing */
+      /* line-height: 1.2; */
+      line-height: 21px;
+      font-size: 15px;
     }
 
     .wish-box.right .wish-text,
@@ -905,6 +1034,208 @@
     .error-message {
       margin-bottom: 25px;
     }
+  </style>
+
+  <style>
+    @media only screen and (max-width: 600px) {
+      .sm-none {
+        display: none;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .close-modal{
+        /* top: -28px; */
+      }
+      .prize img {
+    width: 30vh;
+}
+      .lg-block {
+        display: block;
+      }
+
+      .lg-none {
+        display: none;
+      }
+
+      .all-container {
+        width: 100%;
+        max-width: 100%
+      }
+
+      .section1 {
+        background-image: url('./assets/img/desktop/bg-desktop.svg');
+        /* object-fit: contain; */
+        height: 100vh;
+      }
+
+      .main {
+        /* padding: 50px 30px; */
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      img.wish-typography {
+        height: 170px;
+      }
+
+      .count img {
+        height: 135px;
+      }
+
+      .count p {
+        font-size: 25px;
+      }
+
+      .count span {
+        top: 37%;
+        font-size: 48px;
+      }
+
+      .devider img {
+        height: 12px;
+        bottom: 12px;
+      }
+
+      .section__contents p {
+        font-size: 25px;
+        width: 58%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+      }
+
+      .section__contents img.aed {
+        height: 30px;
+      }
+
+      .btns {
+        display: flex;
+        align-items: center;
+        justify-self: center
+      }
+
+      .yellow-btn {
+        width: 210px;
+      }
+
+      .wish-of-the-day {
+        background-image: url('./assets/img/desktop/Win a Wish- Desktop Version 7.jpg');
+        height: auto;
+        padding-bottom: 100px;
+      }
+
+      .swiper {
+        padding-top: 10%;
+      }
+
+      .swiper-wrapper {
+
+        justify-content: center;
+      }
+
+      .wish-content {
+        width: 74%;
+      }
+
+      .swiper-slide {
+        margin-top: 8% !important;
+      }
+
+      .swiper-slide-next {
+        background-size: contain;
+        width: 33% !important;
+        margin: 0 auto;
+        height: 620px;
+        margin-top: 2% !important;
+      }
+      .swiper-slide-next .wish-text{
+        font-size: 22px;
+        line-height: 28px;
+      }
+      .swiper-slide-next .wish-date {
+        font-size: 20px;
+      }
+
+      .swiper-slide-next .wish-content {
+        width: 60%;
+      }
+
+      .swiper-button-next {
+        right: 34%;
+        top: 70%;
+      }
+
+      .swiper-button-prev {
+        left: 34%;
+        top: 70%;
+      }
+
+      .wish-cards {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .wish-card {
+        width: 100%;
+        height: 41vh;
+      }
+
+      .view-more-button {
+        margin-top: 40px;
+      }
+
+      .wish-card:nth-child(3n + 2) {
+        transform: translateY(0px);
+      }
+
+      .wish-card:nth-child(even) {
+        transform: translateY(-40px);
+      }
+
+      .wish-card h3 {
+        margin-top: 19vh;
+        font-size: 16px;
+      }
+
+
+    }
+
+
+    /* ---- reset ---- */
+.confetti {
+	z-index: 10000;
+	bottom: 10px;
+	right: 10px;
+	position: fixed;
+	border-radius: 10px;
+	background: #fff;
+	padding: 0 12px 6px 12px;
+	border: 1px solid #000;
+}
+
+.confetti a:hover,
+.confetti a:link,
+.confetti a:visited,
+.confetti a:active {
+	color: #000;
+	text-decoration: none;
+}
+
+.confetti img {
+	height: 30px;
+}
+
+.confetti #gh-project {
+	font-size: 20px;
+	padding-left: 5px;
+	font-weight: bold;
+	vertical-align: bottom;
+}
+
   </style>
 </head>
 
@@ -940,31 +1271,33 @@
       </div> -->
     <div class="section1">
       <div class="main">
-        <img src="/assets/img/Typography.svg" class="wish-typography" alt="">
-        <div class="count">
+        <img data-aos="fade-up" data-aos-duration="1000" src="/assets/img/Typography.svg" class="wish-typography"
+          alt="">
+        <div class="count" data-aos="fade-up" data-aos-duration="2000">
           <img src="/assets/img/count-bg.png" alt="">
           <span>{{ wishCount }}</span>
           <p>Wishes uploaded and counting!</p>
         </div>
-        <div class="devider">
+        <div class="devider" data-aos="fade-up" data-aos-duration="3000">
           <img src="/assets/img/Divider.svg" alt="">
         </div>
-        <div class="section__contents">
+        <div class="section__contents" data-aos="fade-up" data-aos-duration="3000">
           <p>This Ramadan, we’re here to make
             your dreams come true. Share your heartfelt
             wish for a chance to win</p>
           <img src="/assets/img/aed.svg" class="aed" alt="">
         </div>
-        <div class="btns">
-          <button class="wish-button">MAKE A WISH</button>
-          <button class="wish-button">GUIDE ME</button>
+        <div class="btns" data-aos="fade-up" data-aos-duration="2000">
+          <button class="wish-button yellow-btn">MAKE A WISH</button>
+          <button class="wish-button yellow-btn" id="guide">GUIDE ME</button>
         </div>
       </div>
     </div>
 
     <div class="wish-of-the-day">
+
       <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper" data-aos="fade-up" data-aos-duration="3000">
           <div class="swiper-slide">
             <div class="wish-content">
               <p class="wish-date">21.02.2025</p>
@@ -1006,15 +1339,47 @@
               <p class="wish-name">AHMED</p>
             </div>
           </div>
+          <div class="swiper-slide">
+            <div class="wish-content">
+              <p class="wish-date">21.02.2025</p>
+              <img src="assets/divider.png" class="wish-of-day-divider" />
+              <p class="wish-text">
+                minus architecto vero adipisci, obcaecati voluptatem iure nisi assumenda maxime? Dolorum
+              </p>
+              <p class="wish-name">AHMED</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="wish-content">
+              <p class="wish-date">21.02.2025</p>
+              <img src="assets/divider.png" class="wish-of-day-divider" />
+              <p class="wish-text">
+                atque doloremque dicta velit laudantium tempore? My dream trip to Japan as a kid. Cherry blossoms,
+              </p>
+              <p class="wish-name">AHMED</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="wish-content">
+              <p class="wish-date">21.02.2025</p>
+              <img src="assets/divider.png" class="wish-of-day-divider" />
+              <p class="wish-text">
+                Studio Ghibli,
+                and all the sushi I can eat—this would be a dream come true!
+              </p>
+              <p class="wish-name">AHMED</p>
+            </div>
+          </div>
 
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
     </div>
-    <div id="wish-list" class="wish-list" style="text-align: center">
-      <img src="/assets/img/wish-head.svg" class="wish-bg" alt="">
-      <div class="wish-cards">
+    <div id="wish-list" class="wish-list" style="text-align: center" >
+      <img src="/assets/img/wish-head.svg" class="wish-bg lg-none" alt="">
+      <img src="/assets/img/desktop/Group 1000004723.svg" class="wish-bg sm-none lg-block" alt="">
+      <div class="wish-cards" data-aos="fade-up" data-aos-duration="3000">
         <div class="wish-card" v-for="wish in visibleWishes" :key="wish.id" @click="openModal(wish)">
           <h3>{{ wish.name }}</h3>
           <span class="wish-count">
@@ -1031,14 +1396,14 @@
       <div class="close-modal" id="close-modal-1"></div>
       <div class="first-step">
         <div class="first-step-message">
-          <img src="assets/step_1.png" />
+          <img src="/assets/img/Typography.svg" />
         </div>
-        <div class="divider">
+        <!-- <div class="divider">
           <img src="assets/divider.png" />
-        </div>
+        </div> -->
         <p>Got a dream worth</p>
         <div class="prize">
-          <img src="assets/25000_2.png" class="prize-image-2" />
+          <img src="/assets/img/aed.svg" alt="" class="aed">
         </div>
         <p class="description">
           Share it this Ramadan, and we might just make it happen!
@@ -1050,48 +1415,48 @@
       </div>
       <div class="second-step">
         <h1>WISH IT, WIN IT!</h1>
-        <div class="subtext">Got a plan for AED 25,000?</div>
-        <div class="subtext" style="margin-bottom: 20px">
-          Tell us how you'd use it, and we might just make it happen!
-        </div>
+        <div class="subtext">Got a plan for AED 25,000? Tell us how you’d
+          use it, and we might just make it happen!</div>
         <div class="info-container">
+          <img src="/assets/img/Divider.svg" class="devider" alt="">
           <div class="info-box">
-            <span>Make Your Wish</span>Share how AED 25,000 can turn your
-            dream into reality.
+            <img src="/assets/img/Make a Wish.svg" alt="">
           </div>
-          <img src="assets/star.png" class="separator" alt="Star" />
-          <div class="info-box" style="width: 90%">
-            <span>One Wish, One Chance</span>Choose wisely!
+          <div class="info-box">
+            <img src="/assets/img/One wish, One Chance.svg" alt="">
           </div>
-          <img src="assets/star.png" class="separator" alt="Star" />
-          <div class="info-box" style="width: 80%">
-            <span>Stay in the Loop</span>Enter your details for updates.
+          <div class="info-box">
+            <img src="/assets/img/Stay in loop.svg" alt="">
           </div>
-          <img src="assets/star.png" class="separator" alt="Star" />
-          <div class="info-box" style="padding: 10px 30px">
-            <span>Pass It On</span>Let your friends in on the chance to wish
-            too!
+          <div class="info-box">
+            <img src="/assets/img/Pass it on.svg" alt="">
           </div>
         </div>
-        <button class="wish-button" id="second-step-button">
+        <div class="terms">
+          <input type="checkbox" id="terms" name="terms" value="terms">
+          <label for="terms"> I accept the <a href="#">terms and conditions</a></label>
+        </div>
+        <p id="terms-error" class="error-msg" style="display: none;">Please accept the terms and conditions.
+        </p>
+        <button class="wish-button" style="margin-top: 10px;" id="second-step-button">
           ADD YOUR WISH
         </button>
-        <div class="tnc">T&C APPLY</div>
+        <!-- <div class="tnc">T&C APPLY</div> -->
       </div>
       <div class="third-step">
-        <h1>WHAT WOULD YOU DO WITH AED 25,000?</h1>
+        <h1>What would you do with AED 25000?</h1>
         <p class="subtext">
           Share your wish this Ramadan for a chance to make it come true.
         </p>
-        <textarea maxlength="250" placeholder="Write your wish here... (250 characters)"></textarea>
+        <textarea maxlength="250" placeholder="Write your wish here… (250 characters)"></textarea>
         <div id="error-message-step-3" class="error-message"></div>
-        <button class="wish-button" id="third-step-button">
+        <button class="wish-button" id="third-step-button" style="margin-top: 0px;">
           SUBMIT YOUR WISH
         </button>
         <div class="tnc">T&C APPLY</div>
       </div>
       <div class="fourth-step">
-        <h1>STAY IN THE LOOP</h1>
+        <h1>Stay in the loop</h1>
         <p class="subtext">
           Don’t miss out on important updates about your entry!
         </p>
@@ -1101,14 +1466,14 @@
         </div>
         <div id="error-message-step-4" class="error-message"></div>
         <button class="wish-button" id="fourth-step-button">SUBMIT</button>
-        <button class="wish-button hide" id="please-wait">Please wait</button>
+        <button class="wish-button hide" id="please-wait">Please wait..</button>
         <div class="tnc">T&C APPLY</div>
       </div>
       <div class="final-step">
         <div class="final-img-container">
-          <img src="assets/final_message.png" />
+          <img src="assets/img/final.svg" />
         </div>
-        <button class="wish-button" id="fourth-step-button" onclick="shareContent()">
+        <button class="wish-button" style="margin-top: 0px;" id="fourth-step-button" onclick="shareContent()">
           SHARE
         </button>
         <div class="tnc">T&C APPLY</div>
@@ -1120,8 +1485,59 @@
         <div class="message" id="modal-message"></div>
       </div>
     </div>
+    <div class="modal-3" id="modal-3">
+      <div class="close-modal" id="close-modal-3"></div>
+      <div class="message-container">
+        <img src="assets/img/Guide me Pop up.svg" />
+      </div>
+    </div>
   </div>
+
+  <!-- CONFETTi -->
+  <div id="confetti" class=""></div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+  <script src='https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js'></script>
+  <script>
+/**
+https://confetti.com/matteobruni/tsparticles
+https://particles.js.org
+https://confetti.js.org
+*/
+const duration = 60 * 60 * 1000,
+	animationEnd = Date.now() + duration,
+	defaults = { startVelocity: 30, spread: 360, ticks: 20, zIndex: 0 };
+
+function randomInRange(min, max) {
+	return Math.random() * (max - min) + min;
+}
+
+const interval = setInterval(function () {
+	const timeLeft = animationEnd - Date.now();
+
+	if (timeLeft <= 0) {
+		return clearInterval(interval);
+	}
+
+	const particleCount = 20 * (timeLeft / duration);
+
+	// since particles fall down, start a bit higher than random
+	confetti(
+		Object.assign({}, defaults, {
+			particleCount,
+			origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+		})
+	);
+	confetti(
+		Object.assign({}, defaults, {
+			particleCount,
+			origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+		})
+	);
+}, 250);
+  </script>
   <script>
     const app = new Vue({
       el: "#app",
@@ -1248,7 +1664,29 @@
     const pleaseWait = document.getElementById("please-wait");
     const finalStep = document.querySelector(".final-step");
     const closeModal2 = document.getElementById("close-modal-2");
+    const closeModal3 = document.getElementById("close-modal-3");
     const modal2 = document.getElementById("modal-2");
+    const termsCheckbox = document.getElementById("terms");
+    const termsError = document.getElementById("terms-error");
+    const confetti = document.getElementById("confetti");
+
+    const guideMe = document.getElementById("guide");
+    const guidepopup = document.querySelector(".guide-me");
+    const modal3 = document.getElementById("modal-3");
+
+    guideMe.addEventListener("click", () => {
+      modal3.classList.add("active");
+      modalOverlay.classList.add("active");
+      guidepopup.classList.add("active");
+
+    });
+
+    closeModal3.addEventListener("click", () => {
+      modal3.classList.remove("active");
+      modalOverlay.classList.remove("active");
+    });
+
+
     closeModal2.addEventListener("click", () => {
       modal2.classList.remove("active");
       modalOverlay.classList.remove("active");
@@ -1278,7 +1716,26 @@
       modal.classList.add("second-step-box");
     });
 
-    secondStep.addEventListener("click", () => {
+    const termValidate = () => {
+      if (!termsCheckbox.checked) {
+        termsError.style.display = "block";
+
+        setTimeout(() => {
+          termsError.style.display = "none";
+        }, 2000);
+
+        return false;
+      }
+      termsError.style.display = "none";
+      return true;
+    };
+
+    secondStepButton.addEventListener("click", () => {
+      if (!termValidate()) {
+        event.preventDefault();
+        return;
+      }
+
       firstStep.classList.remove("active");
       secondStep.classList.remove("active");
       thirdStep.classList.add("active");
@@ -1361,7 +1818,10 @@
         )
           .then((response) => {
             if (response.ok) {
+              const jsConfetti = new JSConfetti();
+              jsConfetti.addConfetti();
               return response.json();
+              
             }
             throw new Error("Network response was not ok.");
           })
@@ -1464,24 +1924,43 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 
   <!-- Initialize Swiper -->
   <script>
     var swiper = new Swiper(".mySwiper", {
-      effect: "cards",
+      slidesPerView: 1,
+      freeMode: true,
       grabCursor: true,
       loop: true,
-      slidesPerView: 1, // Ensure it's lower than the total slides count
-      slidesPerGroup: 1, // Move 1 slide at a time
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        "@0.00": {
+          slidesPerView: 1,
+          spaceBetween: 30,
+        },
+        "@0.75": {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        "@1.00": {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+        "@1.50": {
+          slidesPerView: 5,
+          spaceBetween: 8,
+          centeredSlides: true,
+        },
       },
     });
+  </script>
+  <script>
+    AOS.init();
   </script>
 </body>
 
