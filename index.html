@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Win a Wish</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+
+  <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- NEW STYLES -->
+
+  <style>
+    /* FONTS */
+    @font-face {
+      font-family: 'Caslon';
+      src: url('/assets/font-Caslon/F37Caslon-BoldDisplay.otf') format('opentype');
+      font-weight: 700;
+    }
+
+
+    body {
+      background-color: #f8c6aa;
+    }
+
+
+    /* SWIPER */
+
+    .swiper {
+      width: 80%;
+      height: 100%;
+      margin-top: 13%;
+    }
+
+    .swiper-3d .swiper-slide-shadow {
+      background: transparent;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .swiper-slide {
+      background-image: url('./assets/img/card-bg.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+    }
+
+    .swiper-slide {
+      opacity: .1;
+      padding-top: 41%;
+    }
+
+    .swiper-button-next:after,
+    .swiper-rtl .swiper-button-prev:after,
+    .swiper-button-prev:after,
+    .swiper-rtl .swiper-button-next:after {
+      font-size: 13px;
+      color: #fff;
+    }
+
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+      right: -32px;
+    }
+
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+      left: -32px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      /* background-color: #4a0258; */
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+    }
+
+    .swiper-slide .wish-content {
+      opacity: 0;
+    }
+
+    .swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active {
+      opacity: 1;
+      padding-top: 0%;
+    }
+
+    .swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active .wish-content {
+      opacity: 1;
+    }
+
+
+    /* END */
+    .section1 {
+      background-image: url('./assets/img/bg1.jpg');
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      object-fit: contain;
+      background-repeat: no-repeat;
+    }
+
+    .main {
+      padding: 100px 30px;
+      padding-bottom: 25px;
+    }
+
+    img.wish-typography {
+      width: 100%;
+      object-fit: contain;
+      height: 100px;
+      margin: 0 auto;
+      margin-top: 0px;
+    }
+
+    .count {
+      position: relative;
+      bottom: 10px;
+    }
+
+    .count img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+    }
+
+    .count span {
+      position: absolute;
+      top: 41%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Caslon';
+      font-size: 35px;
+      letter-spacing: 1px;
+    }
+
+    .count p {
+      margin: 0;
+      position: relative;
+      bottom: 51px;
+      color: #FFF3C2;
+      font-size: 17px;
+      text-align: center;
+    }
+
+    .devider img {
+      width: 100%;
+      margin: 0 auto;
+      height: 8px;
+      position: relative;
+      bottom: 50px;
+    }
+
+    .section__contents {
+      position: relative;
+      bottom: 38px;
+    }
+
+    .section__contents p {
+      text-align: center;
+      color: #FFF3C2;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    .section__contents img.aed {
+      width: 100%;
+      margin: 0 auto;
+      height: 24px;
+    }
+
+    .btns {
+      text-align: center;
+      position: relative;
+      bottom: 25px;
+    }
+
+    .wish-button {
+      background-image: url('./assets/img/btn.svg');
+      border: none;
+      outline: none;
+      background-size: contain;
+      background-repeat: no-repeat;
+      object-fit: contain;
+      background-color: transparent;
+      font-family: "Jost", sans-serif;
+      color: #fff;
+      margin: 20px 0;
+      width: 100%;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-position: center;
+      margin-bottom: 0;
+      font-size: 14px;
+
+    }
+    .wish-bg{
+      width: 100%;
+      margin-top: 50px;
+    }
+  </style>
+
+  <!-- END -->
+  <link href="https://fonts.googleapis.com/css2?family=Alike&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: "Jost", sans-serif;
+      /* background: radial-gradient(circle, #0a767c, #00484b); */
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .all-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .main-container {
+      text-align: center;
+      padding: 50px 20px;
+      background-image: url("assets/main_page_background.png");
+      background-size: cover;
+    }
+
+    .header-text {
+      display: flex;
+      justify-content: center;
+    }
+
+    .header-text img {
+      width: 30vh;
+      margin: 40px 0px;
+    }
+
+    .divider {
+      display: flex;
+      justify-content: center;
+    }
+
+    .divider img {
+      width: 20vh;
+    }
+
+    .counter {
+      display: flex;
+      justify-content: center;
+    }
+
+    .counter-badge {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(90deg, #0a767c, #e4a670);
+      border-radius: 50px;
+      border: 2px solid #fff;
+      margin-top: 60px;
+      margin-bottom: 35px;
+    }
+
+    .counter-number {
+      background: #fff;
+      color: #0a767c;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-weight: bold;
+      font-size: 2em;
+      margin-right: 10px;
+      border: 2px solid #ffd100;
+    }
+
+    .counter-text {
+      color: #fff;
+      font-size: 1.2em;
+      white-space: nowrap;
+      padding: 8px;
+    }
+
+    @media (max-width: 720px) {
+      .counter-text {
+        font-size: 1em;
+      }
+    }
+
+    .view-more-button {
+      display: inline-block;
+      color: #fff;
+      margin: 10px;
+      font-size: 1em;
+      font-weight: bold;
+      position: relative;
+      padding-bottom: 5px;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Underline Effect */
+    .view-more-button::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s ease;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .description {
+      font-size: 1.2em;
+      color: #fff;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 720px) {
+      .description {
+        font-size: 1em;
+      }
+    }
+
+    .prize {
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .prize img {
+      width: 60vh;
+    }
+
+    @media (max-width: 720px) {
+      .prize img {
+        width: 100%;
+      }
+    }
+
+
+    @keyframes pulse {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 0% 25%;
+      }
+
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .wish-list {
+      background-color: #fdf7e1;
+      /* background-image: url("assets/wishes_background.png"); */
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .wish-cards {
+      display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+    padding-top: 35px;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    }
+
+    .wish-card {
+      width: 19vh;
+      height: 21vh;
+
+      background-image: url(assets/img/WishCard.svg);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      color: #ffd100;
+      /* padding: 20px; */
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      margin-top: 0px;
+    }
+
+    .wish-card:nth-child(3n + 2) {
+      transform: translateY(-40px);
+    }
+
+    @media (max-width: 600px) {
+      .wish-card {
+        width: 100%;
+      }
+    }
+
+    .wish-card h3 {
+      font-size: 1em;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 9vh;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      font-weight: normal;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .wish-card h3 {
+        margin-top: 9vh;
+      }
+    }
+
+    .wish-card .wish-count {
+      color: #ffd100;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 25px;
+    }
+  </style>
+  <style>
+    .modal-overlay {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      /* Transparent black */
+      z-index: 1;
+      /* Behind the modal */
+    }
+
+    .modal-1 {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      z-index: 2;
+      width: 37vh;
+      height: 435px;
+      background-image: url("assets/bg.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .modal-1.active {
+      display: flex;
+      /* Display when active */
+    }
+
+    .modal-overlay.active {
+      display: block;
+      /* Show overlay when active */
+    }
+
+    .close-modal {
+      position: absolute;
+      top: -8px;
+      right: -12px;
+      width: 40px;
+      height: 40px;
+      background: url("assets/close_icon.png") no-repeat center center/contain;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .first-step {
+      display: none;
+    }
+
+    .first-step.active {
+      display: block;
+    }
+
+    .first-step-message {
+      display: flex;
+      justify-content: center;
+    }
+
+    .first-step-message img {
+      width: 30vh;
+      margin: 15px 0px;
+    }
+
+    .modal-1 p {
+      font-size: 1.5em;
+    }
+
+    .prize .prize-image-2 {
+      width: 25vh;
+    }
+
+    .modal-1 .description {
+      font-size: 1.1em;
+    }
+
+    .tnc {
+      font-size: 0.7em;
+      margin: 20px;
+    }
+
+    .second-step {
+      display: none;
+    }
+
+    .second-step.active {
+      display: block;
+    }
+
+    .second-step-box {
+      height: 615px;
+    }
+
+    .second-step h1 {
+      color: #ffd100;
+      margin-bottom: 10px;
+      font-size: 1.4em;
+    }
+
+    .subtext {
+      color: white;
+      font-size: 1em;
+      margin-bottom: 0px;
+    }
+
+    .info-container {
+      margin-bottom: 25px;
+    }
+
+    .info-box {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 5px 45px;
+      color: white;
+      margin: 5px auto;
+      border-radius: 5px;
+      max-width: 68%;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .info-box span {
+      color: #ffd100;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1em;
+    }
+
+    .info-box:nth-of-type(2),
+    .info-box:nth-of-type(4) {
+      background: linear-gradient(to left,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.2) 100%);
+    }
+
+    .info-box:nth-of-type(1),
+    .info-box:nth-of-type(3) {
+      background: linear-gradient(to right,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.2) 100%);
+    }
+
+    .separator {
+      display: block;
+      width: 5px;
+      height: 5px;
+      margin: 0px auto;
+    }
+
+    .third-step {
+      display: none;
+    }
+
+    .third-step.active {
+      display: block;
+    }
+
+    textarea {
+      background-color: #004144;
+      color: white;
+      width: 34vh;
+      height: 30vh;
+      padding: 15px;
+      border-radius: 15px;
+      border: none;
+      outline: none;
+      margin: 10px 0px;
+      resize: none;
+    }
+
+    textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+      font-style: italic;
+    }
+
+    .third-step h1 {
+      color: white;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .third-step .subtext {
+      color: #ffd100;
+      font-size: 1em;
+    }
+
+    .fourth-step {
+      display: none;
+    }
+
+    .fourth-step.active {
+      display: block;
+    }
+
+    .fourth-step-step h1 {
+      color: white;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .fourth-step .subtext {
+      color: #ffd100;
+      font-size: 1.1em;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    input {
+      width: 80%;
+      padding: 15px;
+      margin: 10px 0;
+      background-color: #004144;
+      border: none;
+      border-radius: 15px;
+      color: white;
+      font-size: 14px;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+      padding: 2px;
+      font-style: italic;
+    }
+
+    .input-container {
+      margin-bottom: 20px;
+    }
+
+    .final-step {
+      display: none;
+    }
+
+    .final-step.active {
+      display: block;
+    }
+
+    .final-img-container {
+      width: 100%;
+      height: 35vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .final-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+  <style>
+    .modal-2 {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      z-index: 2;
+      width: 35vh;
+      height: 435px;
+      background-image: url("assets/messag_background.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      backface-visibility: hidden;
+      transition: transform 0.6s ease-in-out;
+      transform: translate(-50%, -50%) rotateY(180deg);
+    }
+
+    .modal-2.active {
+      display: flex;
+      transform: translate(-50%, -50%) rotateY(0deg);
+      animation: flipIn 0.6s ease-in-out;
+    }
+
+    @keyframes flipIn {
+      from {
+        transform: translate(-50%, -50%) rotateY(90deg);
+        opacity: 0;
+      }
+
+      to {
+        transform: translate(-50%, -50%) rotateY(0deg);
+        opacity: 1;
+      }
+    }
+  </style>
+  <style>
+    .wish-of-the-day {
+      background-color: #fdf7e1;
+      background-image: url("assets/img/Frame4.jpg");
+      background-size: 100%;
+      height: 600px;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    @media (max-width: 600px) {
+      .wish-of-the-day {
+        height: 100vh;
+      }
+    }
+
+    .wish-box {
+      position: absolute;
+      width: 180px;
+      height: 250px;
+      background: url("/assets/img/card-bg.svg") no-repeat center center;
+      background-size: contain;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 66px 30px;
+      transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+      opacity: 0.7;
+      margin-top: 205px;
+    }
+
+    .wish-of-day-divider {
+      display: block;
+      width: 50%;
+      margin: 5px auto;
+    }
+
+    /* Center Box - The main focus */
+    .wish-box.center {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    /* Left Box */
+    .wish-box.left {
+      transform: translateX(-150%) scale(0.9);
+      opacity: 0.7;
+    }
+
+    /* Right Box */
+    .wish-box.right {
+      transform: translateX(150%) scale(0.9);
+      opacity: 0.7;
+    }
+
+    .wish-box.hidden-right {
+      transform: translateX(200%) scale(0.9);
+      opacity: 0;
+    }
+
+    .wish-box.hidden-left {
+      transform: translateX(-200%) scale(0.9);
+      opacity: 0;
+    }
+
+    /* For smaller screens */
+    @media (max-width: 600px) {
+      .wish-box {
+        width: 140px;
+        height: 190px;
+        margin-top: 55%;
+      }
+
+      .wish-box.center {
+        width: 180px;
+        height: 230px;
+      }
+
+      .wish-box.left {
+        transform: translateX(-120%) scale(0.9);
+      }
+
+      .wish-box.right {
+        transform: translateX(120%) scale(0.9);
+      }
+    }
+
+    .wish-content {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      width: 80%;
+    }
+
+    .wish-date {
+      font-size: 1em;
+      margin-top: 500;
+      font-weight: normal;
+    }
+
+    .wish-name {
+      font-weight: normal;
+    }
+
+    .wish-text {
+      color: #ffd100;
+      font-size: 0.75em;
+      /* Adjust font size for better fit */
+      padding: 5px;
+      text-align: center;
+      font-weight: normal;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-wrap: break-word;
+      /* Ensures text wraps within the container */
+      overflow: hidden;
+      /* Prevents overflow */
+      max-width: 100%;
+      /* Ensures it stays within the container */
+      max-height: 100%;
+      /* Prevents overflowing vertically */
+      line-height: 1.2;
+      /* Adjusts line spacing */
+    }
+
+    .wish-box.right .wish-text,
+    .wish-box.left .wish-text {
+      font-size: 0.5em;
+    }
+
+    .error-message {
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="all-container" id="app">
+    <!-- <div class="main-container">
+        <div class="header">
+          <div class="header-text">
+            <img src="assets/win_a_wish.png" />
+          </div>
+
+          <div class="divider">
+            <img src="assets/divider.png" />
+          </div>
+          <div class="counter">
+            <div class="counter-badge">
+              <div class="counter-number">
+                <span>{{ wishCount }}</span>
+              </div>
+              <div class="counter-text">wishes uploaded and counting!</div>
+            </div>
+          </div>
+
+          <p class="description">
+            This Ramadan, we’re here to make your dreams come true. Share your
+            heartfelt wish for a chance to win
+          </p>
+          <div class="prize">
+            <img src="assets/25000.png" />
+          </div>
+          <button class="wish-button">MAKE A WISH</button>
+        </div>
+      </div> -->
+    <div class="section1">
+      <div class="main">
+        <img src="/assets/img/Typography.svg" class="wish-typography" alt="">
+        <div class="count">
+          <img src="/assets/img/count-bg.png" alt="">
+          <span>{{ wishCount }}</span>
+          <p>Wishes uploaded and counting!</p>
+        </div>
+        <div class="devider">
+          <img src="/assets/img/Divider.svg" alt="">
+        </div>
+        <div class="section__contents">
+          <p>This Ramadan, we’re here to make
+            your dreams come true. Share your heartfelt
+            wish for a chance to win</p>
+          <img src="/assets/img/aed.svg" class="aed" alt="">
+        </div>
+        <div class="btns">
+          <button class="wish-button">MAKE A WISH</button>
+          <button class="wish-button">GUIDE ME</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wish-of-the-day">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="wish-content">
+              <p class="wish-date">21.02.2025</p>
+              <img src="assets/divider.png" class="wish-of-day-divider" />
+              <p class="wish-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, id ex nostrum officiis,
+              </p>
+              <p class="wish-name">AHMED</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="wish-content">
+              <p class="wish-date">21.02.2025</p>
+              <img src="assets/divider.png" class="wish-of-day-divider" />
+              <p class="wish-text">
+                minus architecto vero adipisci, obcaecati voluptatem iure nisi assumenda maxime? Dolorum
+              </p>
+              <p class="wish-name">AHMED</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="wish-content">
+              <p class="wish-date">21.02.2025</p>
+              <img src="assets/divider.png" class="wish-of-day-divider" />
+              <p class="wish-text">
+                atque doloremque dicta velit laudantium tempore? My dream trip to Japan as a kid. Cherry blossoms,
+              </p>
+              <p class="wish-name">AHMED</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="wish-content">
+              <p class="wish-date">21.02.2025</p>
+              <img src="assets/divider.png" class="wish-of-day-divider" />
+              <p class="wish-text">
+                Studio Ghibli,
+                and all the sushi I can eat—this would be a dream come true!
+              </p>
+              <p class="wish-name">AHMED</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+    <div id="wish-list" class="wish-list" style="text-align: center">
+      <img src="/assets/img/wish-head.svg" class="wish-bg" alt="">
+      <div class="wish-cards">
+        <div class="wish-card" v-for="wish in visibleWishes" :key="wish.id" @click="openModal(wish)">
+          <h3>{{ wish.name }}</h3>
+          <span class="wish-count">
+            <img src="assets/eye_icon.png" alt="Views" style="width: 18px;" />
+            {{ wish.views_count }}
+          </span>
+        </div>
+      </div>
+      <a v-if="wishes.length > visibleCount" @click="showMore" class="view-more-button">View More</a>
+    </div>
+
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-1" id="modal-1">
+      <div class="close-modal" id="close-modal-1"></div>
+      <div class="first-step">
+        <div class="first-step-message">
+          <img src="assets/step_1.png" />
+        </div>
+        <div class="divider">
+          <img src="assets/divider.png" />
+        </div>
+        <p>Got a dream worth</p>
+        <div class="prize">
+          <img src="assets/25000_2.png" class="prize-image-2" />
+        </div>
+        <p class="description">
+          Share it this Ramadan, and we might just make it happen!
+        </p>
+        <button class="wish-button" id="first-step-button">
+          ADD YOUR WISH
+        </button>
+        <div class="tnc">T&C APPLY</div>
+      </div>
+      <div class="second-step">
+        <h1>WISH IT, WIN IT!</h1>
+        <div class="subtext">Got a plan for AED 25,000?</div>
+        <div class="subtext" style="margin-bottom: 20px">
+          Tell us how you'd use it, and we might just make it happen!
+        </div>
+        <div class="info-container">
+          <div class="info-box">
+            <span>Make Your Wish</span>Share how AED 25,000 can turn your
+            dream into reality.
+          </div>
+          <img src="assets/star.png" class="separator" alt="Star" />
+          <div class="info-box" style="width: 90%">
+            <span>One Wish, One Chance</span>Choose wisely!
+          </div>
+          <img src="assets/star.png" class="separator" alt="Star" />
+          <div class="info-box" style="width: 80%">
+            <span>Stay in the Loop</span>Enter your details for updates.
+          </div>
+          <img src="assets/star.png" class="separator" alt="Star" />
+          <div class="info-box" style="padding: 10px 30px">
+            <span>Pass It On</span>Let your friends in on the chance to wish
+            too!
+          </div>
+        </div>
+        <button class="wish-button" id="second-step-button">
+          ADD YOUR WISH
+        </button>
+        <div class="tnc">T&C APPLY</div>
+      </div>
+      <div class="third-step">
+        <h1>WHAT WOULD YOU DO WITH AED 25,000?</h1>
+        <p class="subtext">
+          Share your wish this Ramadan for a chance to make it come true.
+        </p>
+        <textarea maxlength="250" placeholder="Write your wish here... (250 characters)"></textarea>
+        <div id="error-message-step-3" class="error-message"></div>
+        <button class="wish-button" id="third-step-button">
+          SUBMIT YOUR WISH
+        </button>
+        <div class="tnc">T&C APPLY</div>
+      </div>
+      <div class="fourth-step">
+        <h1>STAY IN THE LOOP</h1>
+        <p class="subtext">
+          Don’t miss out on important updates about your entry!
+        </p>
+        <div class="input-container">
+          <input type="text" placeholder="Enter your firstname" />
+          <input type="text" placeholder="Enter your phone number" value="+971" />
+        </div>
+        <div id="error-message-step-4" class="error-message"></div>
+        <button class="wish-button" id="fourth-step-button">SUBMIT</button>
+        <button class="wish-button hide" id="please-wait">Please wait</button>
+        <div class="tnc">T&C APPLY</div>
+      </div>
+      <div class="final-step">
+        <div class="final-img-container">
+          <img src="assets/final_message.png" />
+        </div>
+        <button class="wish-button" id="fourth-step-button" onclick="shareContent()">
+          SHARE
+        </button>
+        <div class="tnc">T&C APPLY</div>
+      </div>
+    </div>
+    <div class="modal-2" id="modal-2">
+      <div class="close-modal" id="close-modal-2"></div>
+      <div class="message-container">
+        <div class="message" id="modal-message"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        wishes: [],
+        visibleWishes: [],
+        visibleCount: 9, // Initially show 9 wishes
+        lastEvaluatedKey: null, // To store the pagination key from the API
+        isLoading: false, // To track loading state
+        allDataFetched: false, // To stop fetching when all data is loaded
+        wishCount: 0, // Store the total wish count
+      },
+      mounted() {
+        this.fetchWishes();
+        this.fetchWishCount(); // Fetch count initially
+        setInterval(this.fetchWishCount, 10000); // Auto-update count every 10s
+      },
+      methods: {
+        async fetchWishes() {
+          if (this.isLoading || this.allDataFetched) return;
+          this.isLoading = true;
+
+          let url =
+            "https://mdwzc5hclunq5ntdtgyks54yfi0ekbfc.lambda-url.ap-south-1.on.aws/?limit=18";
+
+          if (this.lastEvaluatedKey) {
+            url += `&lastEvaluatedKey=${this.lastEvaluatedKey}`;
+          }
+
+          try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (data.items && data.items.length > 0) {
+              this.wishes = [...this.wishes, ...data.items];
+              this.visibleWishes = this.wishes.slice(0, this.visibleCount);
+            }
+
+            if (data.lastEvaluatedKey) {
+              this.lastEvaluatedKey = data.lastEvaluatedKey;
+            } else {
+              this.allDataFetched = true; // No more data to load
+            }
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          } finally {
+            this.isLoading = false;
+          }
+        },
+        async updateWishViewCount(wishId) {
+          fetch(
+            `https://k4mxr4ci4gdbxwycq33gku2mya0apcqg.lambda-url.ap-south-1.on.aws/`,
+            {
+              method: "PATCH", // Or "POST" depending on your API
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ id: wishId }), // Adjust payload as per your API
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              this.allDataFetched = false;
+              this.wishes = []; // Clear the existing data
+              this.fetchWishes(); // Update the count after successful update
+              console.log("View count updated:", data);
+            })
+            .catch((error) => {
+              console.error("Error updating view count:", error);
+            });
+        },
+        openModal(wish) {
+          const modal = document.getElementById("modal-2");
+          const modalOverlay = document.getElementById("modal-overlay");
+          const modalMessage = document.getElementById("modal-message");
+
+          modal.classList.add("active");
+          modalOverlay.classList.add("active");
+          modalMessage.textContent = wish.message;
+          this.updateWishViewCount(wish.id);
+        },
+        showMore() {
+          let newCount = this.visibleCount + 3; // Increment by 3 each time
+
+          if (newCount <= this.wishes.length) {
+            this.visibleCount = newCount;
+          } else {
+            this.fetchWishes(); // Fetch more data if available
+          }
+
+          this.updateVisibleWishes();
+        },
+        async fetchWishCount() {
+          try {
+            const response = await fetch(
+              "https://mdwzc5hclunq5ntdtgyks54yfi0ekbfc.lambda-url.ap-south-1.on.aws/count"
+            );
+            const data = await response.json();
+            this.wishCount = data.totalCount;
+          } catch (error) {
+            console.error("Error fetching wish count:", error);
+          }
+        },
+        updateVisibleWishes() {
+          // Ensure the count is at least 3 and in multiples of 3
+          let validCount = Math.floor(this.wishes.length / 3) * 3;
+          this.visibleWishes = this.wishes.slice(0, validCount);
+          this.visibleCount = validCount;
+        },
+      },
+    });
+    const modal = document.getElementById("modal-1");
+    const modalOverlay = document.getElementById("modal-overlay");
+    const openModalBtn = document.querySelector(".wish-button");
+    const closeModal = document.getElementById("close-modal-1");
+    const firstStep = document.querySelector(".first-step");
+    const firstStepButton = document.getElementById("first-step-button");
+    const secondStep = document.querySelector(".second-step");
+    const secondStepButton = document.getElementById("second-step-button");
+    const thirdStep = document.querySelector(".third-step");
+    const thirdStepButton = document.getElementById("third-step-button");
+    const fourthStep = document.querySelector(".fourth-step");
+    const fourthStepButton = document.getElementById("fourth-step-button");
+    const pleaseWait = document.getElementById("please-wait");
+    const finalStep = document.querySelector(".final-step");
+    const closeModal2 = document.getElementById("close-modal-2");
+    const modal2 = document.getElementById("modal-2");
+    closeModal2.addEventListener("click", () => {
+      modal2.classList.remove("active");
+      modalOverlay.classList.remove("active");
+    });
+    // Open modal on "Open Modal" button click
+    openModalBtn.addEventListener("click", () => {
+      modal.classList.add("active");
+      modalOverlay.classList.add("active");
+      firstStep.classList.add("active");
+      secondStep.classList.remove("active");
+      thirdStep.classList.remove("active");
+      fourthStep.classList.remove("active");
+      finalStep.classList.remove("active");
+    });
+
+    // Close modal on close icon click
+    closeModal.addEventListener("click", () => {
+      modal.classList.remove("active");
+      modalOverlay.classList.remove("active");
+    });
+
+    firstStepButton.addEventListener("click", () => {
+      firstStep.classList.remove("active");
+      secondStep.classList.add("active");
+      thirdStep.classList.remove("active");
+      fourthStep.classList.remove("active");
+      modal.classList.add("second-step-box");
+    });
+
+    secondStep.addEventListener("click", () => {
+      firstStep.classList.remove("active");
+      secondStep.classList.remove("active");
+      thirdStep.classList.add("active");
+      fourthStep.classList.remove("active");
+      modal.classList.add("second-step-box");
+    });
+  </script>
+  <script>
+    document
+      .getElementById("third-step-button")
+      .addEventListener("click", function () {
+        // Get the textarea value
+        const message = document.querySelector("textarea").value;
+
+        // Store the message in session storage and move to the next step
+        sessionStorage.setItem("wishMessage", message);
+
+        if (message != "") {
+          firstStep.classList.remove("active");
+          secondStep.classList.remove("active");
+          thirdStep.classList.remove("active");
+          fourthStep.classList.add("active");
+          modal.classList.remove("second-step-box");
+        } else {
+          document.getElementById("error-message-step-3").innerHTML =
+            "Please type in your message";
+          return;
+        }
+      });
+    const phoneInput = document.querySelector(
+      ".input-container input[placeholder='Enter your phone number']"
+    );
+    phoneInput.addEventListener("input", () => {
+      // Check if the value already starts with +971
+      if (!phoneInput.value.startsWith("+971")) {
+        phoneInput.value = `+971${phoneInput.value}`;
+      }
+    });
+    document
+      .getElementById("fourth-step-button")
+      .addEventListener("click", function () {
+        pleaseWait.classList.remove("hide");
+        fourthStepButton.classList.add("hide");
+        // Get the stored message
+        const message = sessionStorage.getItem("wishMessage");
+
+        // Get the firstname and phone number values
+        const firstname = document.querySelector(
+          ".input-container input[placeholder='Enter your firstname']"
+        ).value;
+        const phoneNumber = document.querySelector(
+          ".input-container input[placeholder='Enter your phone number']"
+        ).value;
+
+        // Validate the input data
+        if (!firstname || !phoneNumber || !message) {
+          document.getElementById("error-message-step-4").innerHTML =
+            "Please fill out all fields.";
+          pleaseWait.classList.add("hide");
+          fourthStepButton.classList.remove("hide");
+          return;
+        }
+        document.getElementById("error-message-step-4").innerHTML = "";
+        // Construct the request payload
+        const payload = {
+          first_name: firstname,
+          phone_number: phoneNumber,
+          message: message,
+        };
+        // POST request to the REST API
+        fetch(
+          "https://gyo6hj3tqgc3725zb7uquzvewe0vcjqg.lambda-url.ap-south-1.on.aws",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          }
+        )
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error("Network response was not ok.");
+          })
+          .then((data) => {
+            if (data.success) {
+              firstStep.classList.remove("active");
+              secondStep.classList.remove("active");
+              thirdStep.classList.remove("active");
+              fourthStep.classList.remove("active");
+              finalStep.classList.add("active");
+              modal.classList.remove("second-step-box");
+              pleaseWait.classList.add("hide");
+              fourthStepButton.classList.remove("hide");
+              console.log("Success:", data);
+
+              // Clear the form and session storage
+              document.querySelector("textarea").value = "";
+              document.querySelector(
+                ".input-container input[placeholder='Enter your firstname']"
+              ).value = "";
+              document.querySelector(
+                ".input-container input[placeholder='Enter your phone number']"
+              ).value = "";
+              sessionStorage.removeItem("wishMessage");
+              if (app && typeof app.fetchWishes === "function") {
+                app.allDataFetched = false;
+                this.wishes = [];
+                app.fetchWishes();
+              } else {
+                console.error(
+                  "Vue instance is not initialized or fetchWishes is not a function."
+                );
+              }
+            } else {
+              document.getElementById("error-message-step-4").innerHTML =
+                data.message;
+            }
+          })
+          .catch((error) => {
+            document.getElementById("error-message-step-4").innerHTML =
+              "There was a problem with your submission.";
+            console.error("Error:", error);
+          });
+      });
+  </script>
+  <script>
+    let wishBoxes = document.querySelectorAll(".wish-box");
+    let currentIndex = 0;
+
+    function rotateBoxes() {
+      // Remove all position-related classes
+      wishBoxes.forEach((box) =>
+        box.classList.remove(
+          "left",
+          "right",
+          "center",
+          "hidden-left",
+          "hidden-right"
+        )
+      );
+
+      // Determine the indexes for rotation
+      let hiddenLeftIndex = currentIndex;
+      let leftIndex = (currentIndex + 1) % wishBoxes.length;
+      let centerIndex = (currentIndex + 2) % wishBoxes.length;
+      let rightIndex = (currentIndex + 3) % wishBoxes.length;
+      let hiddenRightIndex = (currentIndex + 4) % wishBoxes.length; // Ensures one is hidden on right
+
+      // Apply new classes
+      wishBoxes[hiddenLeftIndex].classList.add("hidden-left");
+      wishBoxes[leftIndex].classList.add("left");
+      wishBoxes[centerIndex].classList.add("center");
+      wishBoxes[rightIndex].classList.add("right");
+      wishBoxes[hiddenRightIndex].classList.add("hidden-right");
+
+      // Move to the next box for the next rotation
+      currentIndex = (currentIndex + 1) % wishBoxes.length;
+    }
+
+    // Rotate every 5 seconds
+    setInterval(rotateBoxes, 5000);
+    function shareContent() {
+      if (navigator.share) {
+        navigator
+          .share({
+            title: "Win a Wish",
+            text: "Share your wish this Ramadan for a chance to make it come true.",
+            url: "https://main.d2fo9xxt5n5l4y.amplifyapp.com/",
+          })
+          .then(() => {
+            console.log("Thanks for sharing!");
+          })
+          .catch((error) => {
+            console.error("Error sharing:", error);
+          });
+      } else {
+        alert("Sharing is not supported in your browser.");
+      }
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "cards",
+      grabCursor: true,
+      loop: true,
+      slidesPerView: 1, // Ensure it's lower than the total slides count
+      slidesPerGroup: 1, // Move 1 slide at a time
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+
+</html>
