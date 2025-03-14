@@ -78,7 +78,7 @@
     }
 
     .main {
-      padding: 100px 30px;
+      padding: 38% 10%;
       padding-bottom: 50px;
     }
 
@@ -152,6 +152,7 @@
       text-align: center;
       position: relative;
       padding-top: 20px;
+      gap: 20px;
       /* bottom: 25px; */
     }
 
@@ -176,7 +177,7 @@
       font-size: 14px;
       cursor: pointer;
       transition: transform 0.3s ease-in-out;
-
+      font-weight: 500;
     }
 
     .wish-button:hover {
@@ -355,6 +356,7 @@
       /* background-image: url("assets/wishes_background.png"); */
       background-size: cover;
       background-repeat: no-repeat;
+      overflow: hidden;
     }
 
     .wish-cards {
@@ -394,6 +396,15 @@
       .wish-card {
         width: 100%;
       }
+      .section1{
+        min-height: 89vh;
+      }
+      /* .modal-3{
+        width: 76%;
+        height: 499px !important;
+        background-image: none !important;
+        background-color: transparent !important;
+      } */
     }
 
     .wish-card h3 {
@@ -484,15 +495,15 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: #fff;
+      /* background: #fff; */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       padding: 20px;
       border-radius: 10px;
       text-align: center;
       z-index: 2;
-      width: 37vh;
+      width: 66%;
       height: 435px;
-      background-image: url("assets/img/makewish.png");
+      /* background-image: url("assets/img/makewish.png"); */
       background-repeat: no-repeat;
       background-size: 100% 100%;
       flex-direction: column;
@@ -605,7 +616,7 @@
       margin: 0;
     }
 
-    .info-container img.devider {
+    img.info-devider {
       width: 100%;
       margin: 0 auto;
       height: 8px;
@@ -841,44 +852,46 @@
       justify-content: center;
       text-align: center;
       backface-visibility: hidden;
-      /* transition: transform 0.6s ease-in-out; */
-      /* transform: translate(-50%, -50%) rotateY(180deg); */
-      opacity: 0;
-      animation: smoothFadeIn 2s ease-in-out forwards;
+      transition: transform 0.6s ease-in-out;
+      transform: translate(-50%, -50%) rotateY(180deg);
     }
 
     .modal-2.active {
       display: flex;
-      opacity: 1;
+      transform: translate(-50%, -50%) rotateY(0deg);
+      animation: flipIn 0.6s ease-in-out;
     }
 
     @keyframes flipIn {
-      from {
-        opacity: 0;
+        from {
+          transform: translate(-50%, -50%) rotateY(90deg);
+          opacity: 0;
+        }
+        to {
+          transform: translate(-50%, -50%) rotateY(0deg);
+          opacity: 1;
+        }
       }
-
-      to {
-        opacity: 1;
-      }
-    }
 
 
     .swiper-button-next:after,
     .swiper-rtl .swiper-button-prev:after {
       content: 'next';
-      color: #4A0258;
+      color: #fff;
+      font-weight: 600;
       font-size: 12px;
     }
 
     .swiper-button-prev:after,
     .swiper-rtl .swiper-button-next:after {
-      color: #4A0258;
+      color: #fff;
+      font-weight: 600;
       font-size: 12px;
     }
 
     .swiper-button-next,
     .swiper-button-prev {
-      background: #F4CA8E;
+      background: #994B7B;
       width: 30px;
       height: 30px;
       display: flex;
@@ -887,9 +900,10 @@
       border-radius: 100px;
     }
 
-    .swiper-button-next, .swiper-button-prev {
-    top: 76%;
-}
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: 76%;
+    }
   </style>
   <style>
     .wish-of-the-day {
@@ -908,8 +922,11 @@
     @media (max-width: 600px) {
       .wish-of-the-day {
         height: auto;
-        padding-bottom: 60px;
+        padding-bottom: 40%;
       }
+      /* .wish-bg{
+        padding-bottom: 10%;
+      } */
     }
 
     .wish-box {
@@ -1039,23 +1056,25 @@
   <style>
     @media only screen and (max-width: 600px) {
       .sm-none {
-        display: none;
+        display: none !important;
       }
     }
 
     @media (min-width: 1025px) {
-      .close-modal{
+      .close-modal {
         /* top: -28px; */
       }
+
       .prize img {
-    width: 30vh;
-}
+        width: 40vh;
+      }
+
       .lg-block {
         display: block;
       }
 
       .lg-none {
-        display: none;
+        display: none !important;
       }
 
       .all-container {
@@ -1084,7 +1103,7 @@
       }
 
       .count img {
-        height: 135px;
+        height: 125px;
       }
 
       .count p {
@@ -1119,7 +1138,7 @@
       }
 
       .yellow-btn {
-        width: 210px;
+        width: 300px;
       }
 
       .wish-of-the-day {
@@ -1143,6 +1162,7 @@
 
       .swiper-slide {
         margin-top: 8% !important;
+        opacity: .4;
       }
 
       .swiper-slide-next {
@@ -1151,11 +1171,14 @@
         margin: 0 auto;
         height: 620px;
         margin-top: 2% !important;
+        opacity: 1;
       }
-      .swiper-slide-next .wish-text{
+
+      .swiper-slide-next .wish-text {
         font-size: 22px;
         line-height: 28px;
       }
+
       .swiper-slide-next .wish-date {
         font-size: 20px;
       }
@@ -1177,11 +1200,13 @@
       .wish-cards {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
+        overflow: hidden;
       }
 
       .wish-card {
         width: 100%;
         height: 41vh;
+        overflow: hidden;
       }
 
       .view-more-button {
@@ -1201,41 +1226,128 @@
         font-size: 16px;
       }
 
+      /* MODAL DESIGN */
+      .modal-1, .modal-3 {
+        width: 55%;
+        min-height: 550px;
+      }
+      .modal-3 .close-modal {
+        top: -12px;
+        right: -10px;
+        height: 70px;
+        width: 42px;
+    }
+
+      .first-step-message img {
+        width: 70vh;
+        margin: 15px 0px;
+        height: 150px;
+      }
+
+      .modal-1 p {
+        font-size: 25px;
+      }
+
+      .modal-1 .description {
+        font-size: 22px;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .wish-button {
+        height: 55px;
+        font-size: 16px;
+      }
+
+      .info-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 20px;
+      }
+      .terms label {
+        font-size: 14px;
+      }
+
+      .info-box img {
+        height: 70px;
+      }
+
+      .second-step h1, .third-step h1, .fourth-step-step h1, .fourth-step h1 {
+        font-size: 2.4em;
+      }
+      .third-step h1{
+        width: 70%;
+      }
+
+      .third-step .subtext{
+        font-size: 18px;
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        margin-top: 5px;
+      }
+      textarea{
+        width: 90%;
+      }
+      input {
+    width: 90%;
+    padding: 20px;
+      }
+      .fourth-step .subtext{
+        width: 75%;
+        font-size: 18px;
+      }
+
+      
+
+      .subtext {
+        font-size: 18px;
+        width: 60%;
+        margin: 0 auto;
+        line-height: 125%;
+        margin-bottom: 20px;
+      }
+      textarea::placeholde{
+        font-size: 14px;
+      }
+      .modal-3{
+        background-image: none;
+        background-color: transparent;
+      }
 
     }
 
 
     /* ---- reset ---- */
-.confetti {
-	z-index: 10000;
-	bottom: 10px;
-	right: 10px;
-	position: fixed;
-	border-radius: 10px;
-	background: #fff;
-	padding: 0 12px 6px 12px;
-	border: 1px solid #000;
-}
+    .confetti {
+      z-index: 10000;
+      bottom: 10px;
+      right: 10px;
+      position: fixed;
+      border-radius: 10px;
+      background: #fff;
+      padding: 0 12px 6px 12px;
+      border: 1px solid #000;
+    }
 
-.confetti a:hover,
-.confetti a:link,
-.confetti a:visited,
-.confetti a:active {
-	color: #000;
-	text-decoration: none;
-}
+    .confetti a:hover,
+    .confetti a:link,
+    .confetti a:visited,
+    .confetti a:active {
+      color: #000;
+      text-decoration: none;
+    }
 
-.confetti img {
-	height: 30px;
-}
+    .confetti img {
+      height: 30px;
+    }
 
-.confetti #gh-project {
-	font-size: 20px;
-	padding-left: 5px;
-	font-weight: bold;
-	vertical-align: bottom;
-}
-
+    .confetti #gh-project {
+      font-size: 20px;
+      padding-left: 5px;
+      font-weight: bold;
+      vertical-align: bottom;
+    }
   </style>
 </head>
 
@@ -1376,7 +1488,7 @@
         <div class="swiper-button-prev"></div>
       </div>
     </div>
-    <div id="wish-list" class="wish-list" style="text-align: center" >
+    <div id="wish-list" class="wish-list" style="text-align: center">
       <img src="/assets/img/wish-head.svg" class="wish-bg lg-none" alt="">
       <img src="/assets/img/desktop/Group 1000004723.svg" class="wish-bg sm-none lg-block" alt="">
       <div class="wish-cards" data-aos="fade-up" data-aos-duration="3000">
@@ -1414,22 +1526,26 @@
         <div class="tnc">T&C APPLY</div>
       </div>
       <div class="second-step">
-        <h1>WISH IT, WIN IT!</h1>
+        <h1>Wish it. Win it!</h1>
         <div class="subtext">Got a plan for AED 25,000? Tell us how you’d
           use it, and we might just make it happen!</div>
+        <img src="/assets/img/Divider.svg" class="info-devider" alt="">
         <div class="info-container">
-          <img src="/assets/img/Divider.svg" class="devider" alt="">
           <div class="info-box">
-            <img src="/assets/img/Make a Wish.svg" alt="">
+            <img src="/assets/img/Make a Wish.svg" class="lg-none" alt="">
+            <img src="/assets/img/desktop/1.svg" class="sm-none" alt="">
           </div>
           <div class="info-box">
-            <img src="/assets/img/One wish, One Chance.svg" alt="">
+            <img src="/assets/img/One wish, One Chance.svg" class="lg-none" alt="">
+            <img src="/assets/img/desktop/2.svg" class="sm-none" alt="">
           </div>
           <div class="info-box">
-            <img src="/assets/img/Stay in loop.svg" alt="">
+            <img src="/assets/img/Stay in loop.svg" class="lg-none" alt="">
+            <img src="/assets/img/desktop/3.svg" class="sm-none" alt="">
           </div>
           <div class="info-box">
-            <img src="/assets/img/Pass it on.svg" alt="">
+            <img src="/assets/img/Pass it on.svg" class="lg-none" alt="">
+            <img src="/assets/img/desktop/4.svg" class="sm-none" alt="">
           </div>
         </div>
         <div class="terms">
@@ -1471,7 +1587,8 @@
       </div>
       <div class="final-step">
         <div class="final-img-container">
-          <img src="assets/img/final.svg" />
+          <img src="assets/img/final.svg" class="lg-none" />
+          <img src="assets/img/desktop/final.svg" class="sm-none" />
         </div>
         <button class="wish-button" style="margin-top: 0px;" id="fourth-step-button" onclick="shareContent()">
           SHARE
@@ -1488,7 +1605,8 @@
     <div class="modal-3" id="modal-3">
       <div class="close-modal" id="close-modal-3"></div>
       <div class="message-container">
-        <img src="assets/img/Guide me Pop up.svg" />
+        <img src="assets/img/Guide me Pop up.svg" class="lg-none" />
+        <img src="assets/img/desktop/guide.svg" class="sm-none" />
       </div>
     </div>
   </div>
@@ -1501,42 +1619,42 @@
 
   <script src='https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js'></script>
   <script>
-/**
-https://confetti.com/matteobruni/tsparticles
-https://particles.js.org
-https://confetti.js.org
-*/
-const duration = 60 * 60 * 1000,
-	animationEnd = Date.now() + duration,
-	defaults = { startVelocity: 30, spread: 360, ticks: 20, zIndex: 0 };
+    /**
+    https://confetti.com/matteobruni/tsparticles
+    https://particles.js.org
+    https://confetti.js.org
+    */
+    const duration = 60 * 60 * 1000,
+      animationEnd = Date.now() + duration,
+      defaults = { startVelocity: 30, spread: 360, ticks: 20, zIndex: 0 };
 
-function randomInRange(min, max) {
-	return Math.random() * (max - min) + min;
-}
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
 
-const interval = setInterval(function () {
-	const timeLeft = animationEnd - Date.now();
+    const interval = setInterval(function () {
+      const timeLeft = animationEnd - Date.now();
 
-	if (timeLeft <= 0) {
-		return clearInterval(interval);
-	}
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
 
-	const particleCount = 20 * (timeLeft / duration);
+      const particleCount = 20 * (timeLeft / duration);
 
-	// since particles fall down, start a bit higher than random
-	confetti(
-		Object.assign({}, defaults, {
-			particleCount,
-			origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
-		})
-	);
-	confetti(
-		Object.assign({}, defaults, {
-			particleCount,
-			origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
-		})
-	);
-}, 250);
+      // since particles fall down, start a bit higher than random
+      confetti(
+        Object.assign({}, defaults, {
+          particleCount,
+          origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+        })
+      );
+      confetti(
+        Object.assign({}, defaults, {
+          particleCount,
+          origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+        })
+      );
+    }, 250);
   </script>
   <script>
     const app = new Vue({
@@ -1821,7 +1939,7 @@ const interval = setInterval(function () {
               const jsConfetti = new JSConfetti();
               jsConfetti.addConfetti();
               return response.json();
-              
+
             }
             throw new Error("Network response was not ok.");
           })
