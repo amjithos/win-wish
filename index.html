@@ -9,14 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
 
-  <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" /> -->
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-
   <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
   <!-- NEW STYLES -->
 
   <style>
@@ -1316,36 +1316,6 @@
     }
 
 
-    /* ---- reset ---- */
-    .confetti {
-      z-index: 10000;
-      bottom: 10px;
-      right: 10px;
-      position: fixed;
-      border-radius: 10px;
-      background: #fff;
-      padding: 0 12px 6px 12px;
-      border: 1px solid #000;
-    }
-
-    .confetti a:hover,
-    .confetti a:link,
-    .confetti a:visited,
-    .confetti a:active {
-      color: #000;
-      text-decoration: none;
-    }
-
-    .confetti img {
-      height: 30px;
-    }
-
-    .confetti #gh-project {
-      font-size: 20px;
-      padding-left: 5px;
-      font-weight: bold;
-      vertical-align: bottom;
-    }
   </style>
 </head>
 
@@ -1609,51 +1579,10 @@
     </div>
   </div>
 
-  <!-- CONFETTi -->
-  <div id="confetti" class=""></div>
-
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
-  <script src='https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js'></script>
-  <script>
-    /**
-    https://confetti.com/matteobruni/tsparticles
-    https://particles.js.org
-    https://confetti.js.org
-    */
-    const duration = 60 * 60 * 1000,
-      animationEnd = Date.now() + duration,
-      defaults = { startVelocity: 30, spread: 360, ticks: 20, zIndex: 0 };
 
-    function randomInRange(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-
-    const interval = setInterval(function () {
-      const timeLeft = animationEnd - Date.now();
-
-      if (timeLeft <= 0) {
-        return clearInterval(interval);
-      }
-
-      const particleCount = 20 * (timeLeft / duration);
-
-      // since particles fall down, start a bit higher than random
-      confetti(
-        Object.assign({}, defaults, {
-          particleCount,
-          origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
-        })
-      );
-      confetti(
-        Object.assign({}, defaults, {
-          particleCount,
-          origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
-        })
-      );
-    }, 250);
-  </script>
   <script>
     const app = new Vue({
       el: "#app",
@@ -1730,8 +1659,8 @@
           const modalOverlay = document.getElementById("modal-overlay");
           const modalMessage = document.getElementById("modal-message");
 
-          modal.classList.add("active");
-          modalOverlay.classList.add("active");
+          modal?.classList.add("active");
+          modalOverlay?.classList.add("active");
           modalMessage.textContent = wish.message;
           this.updateWishViewCount(wish.id);
         },
@@ -1784,52 +1713,51 @@
     const modal2 = document.getElementById("modal-2");
     const termsCheckbox = document.getElementById("terms");
     const termsError = document.getElementById("terms-error");
-    const confetti = document.getElementById("confetti");
 
     const guideMe = document.getElementById("guide");
     const guidepopup = document.querySelector(".guide-me");
     const modal3 = document.getElementById("modal-3");
 
     guideMe.addEventListener("click", () => {
-      modal3.classList.add("active");
-      modalOverlay.classList.add("active");
-      guidepopup.classList.add("active");
+      modal3?.classList.add("active");
+      modalOverlay?.classList.add("active");
+      guidepopup?.classList.add("active");
 
     });
 
     closeModal3.addEventListener("click", () => {
-      modal3.classList.remove("active");
-      modalOverlay.classList.remove("active");
+      modal3?.classList.remove("active");
+      modalOverlay?.classList.remove("active");
     });
 
 
     closeModal2.addEventListener("click", () => {
-      modal2.classList.remove("active");
-      modalOverlay.classList.remove("active");
+      modal2?.classList.remove("active");
+      modalOverlay?.classList.remove("active");
     });
     // Open modal on "Open Modal" button click
     openModalBtn.addEventListener("click", () => {
-      modal.classList.add("active");
-      modalOverlay.classList.add("active");
-      firstStep.classList.add("active");
-      secondStep.classList.remove("active");
-      thirdStep.classList.remove("active");
-      fourthStep.classList.remove("active");
-      finalStep.classList.remove("active");
+      modal?.classList.add("active");
+      modalOverlay?.classList.add("active");
+      firstStep?.classList.add("active");
+      secondStep?.classList.remove("active");
+      thirdStep?.classList.remove("active");
+      fourthStep?.classList.remove("active");
+      finalStep?.classList.remove("active");
     });
 
     // Close modal on close icon click
     closeModal.addEventListener("click", () => {
-      modal.classList.remove("active");
-      modalOverlay.classList.remove("active");
+      modal?.classList.remove("active");
+      modalOverlay?.classList.remove("active");
     });
 
     firstStepButton.addEventListener("click", () => {
-      firstStep.classList.remove("active");
-      secondStep.classList.add("active");
-      thirdStep.classList.remove("active");
-      fourthStep.classList.remove("active");
-      modal.classList.add("second-step-box");
+      firstStep?.classList.remove("active");
+      secondStep?.classList.add("active");
+      thirdStep?.classList.remove("active");
+      fourthStep?.classList.remove("active");
+      modal?.classList.add("second-step-box");
     });
 
     const termValidate = () => {
@@ -1852,11 +1780,11 @@
         return;
       }
 
-      firstStep.classList.remove("active");
-      secondStep.classList.remove("active");
-      thirdStep.classList.add("active");
-      fourthStep.classList.remove("active");
-      modal.classList.add("second-step-box");
+      firstStep?.classList.remove("active");
+      secondStep?.classList.remove("active");
+      thirdStep?.classList.add("active");
+      fourthStep?.classList.remove("active");
+      modal?.classList.add("second-step-box");
     });
   </script>
   <script>
@@ -1870,11 +1798,11 @@
         sessionStorage.setItem("wishMessage", message);
 
         if (message != "") {
-          firstStep.classList.remove("active");
-          secondStep.classList.remove("active");
-          thirdStep.classList.remove("active");
-          fourthStep.classList.add("active");
-          modal.classList.remove("second-step-box");
+          firstStep?.classList.remove("active");
+          secondStep?.classList.remove("active");
+          thirdStep?.classList.remove("active");
+          fourthStep?.classList.add("active");
+          modal?.classList.remove("second-step-box");
         } else {
           document.getElementById("error-message-step-3").innerHTML =
             "Please type in your message";
@@ -1893,8 +1821,8 @@
     document
       .getElementById("fourth-step-button")
       .addEventListener("click", function () {
-        pleaseWait.classList.remove("hide");
-        fourthStepButton.classList.add("hide");
+        pleaseWait?.classList.remove("hide");
+        fourthStepButton?.classList.add("hide");
         // Get the stored message
         const message = sessionStorage.getItem("wishMessage");
 
@@ -1910,8 +1838,8 @@
         if (!firstname || !phoneNumber || !message) {
           document.getElementById("error-message-step-4").innerHTML =
             "Please fill out all fields.";
-          pleaseWait.classList.add("hide");
-          fourthStepButton.classList.remove("hide");
+          pleaseWait?.classList.add("hide");
+          fourthStepButton?.classList.remove("hide");
           return;
         }
         document.getElementById("error-message-step-4").innerHTML = "";
@@ -1934,23 +1862,23 @@
         )
           .then((response) => {
             if (response.ok) {
-              const jsConfetti = new JSConfetti();
-              jsConfetti.addConfetti();
               return response.json();
-
             }
             throw new Error("Network response was not ok.");
           })
           .then((data) => {
             if (data.success) {
-              firstStep.classList.remove("active");
-              secondStep.classList.remove("active");
-              thirdStep.classList.remove("active");
-              fourthStep.classList.remove("active");
-              finalStep.classList.add("active");
-              modal.classList.remove("second-step-box");
-              pleaseWait.classList.add("hide");
-              fourthStepButton.classList.remove("hide");
+              const jsConfetti = new JSConfetti();
+              jsConfetti.addConfetti();
+
+              firstStep?.classList.remove("active");
+              secondStep?.classList.remove("active");
+              thirdStep?.classList.remove("active");
+              fourthStep?.classList.remove("active");
+              finalStep?.classList.add("active");
+              modal?.classList.remove("second-step-box");
+              pleaseWait?.classList.add("hide");
+              fourthStepButton?.classList.remove("hide");
               console.log("Success:", data);
 
               // Clear the form and session storage
@@ -1990,7 +1918,7 @@
     function rotateBoxes() {
       // Remove all position-related classes
       wishBoxes.forEach((box) =>
-        box.classList.remove(
+        box?.classList.remove(
           "left",
           "right",
           "center",
@@ -2007,11 +1935,11 @@
       let hiddenRightIndex = (currentIndex + 4) % wishBoxes.length; // Ensures one is hidden on right
 
       // Apply new classes
-      wishBoxes[hiddenLeftIndex].classList.add("hidden-left");
-      wishBoxes[leftIndex].classList.add("left");
-      wishBoxes[centerIndex].classList.add("center");
-      wishBoxes[rightIndex].classList.add("right");
-      wishBoxes[hiddenRightIndex].classList.add("hidden-right");
+      wishBoxes[hiddenLeftIndex]?.classList.add("hidden-left");
+      wishBoxes[leftIndex]?.classList.add("left");
+      wishBoxes[centerIndex]?.classList.add("center");
+      wishBoxes[rightIndex]?.classList.add("right");
+      wishBoxes[hiddenRightIndex]?.classList.add("hidden-right");
 
       // Move to the next box for the next rotation
       currentIndex = (currentIndex + 1) % wishBoxes.length;
